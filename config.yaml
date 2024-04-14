@@ -1,8 +1,8 @@
 settings:
-  title: 'Status Page'
+  title: '运行状态'
   url: 'https://status-page.eidam.dev' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 7 # number of days you want to display in histogram
+  daysInHistogram: 30 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
   allmonitorsOperational: '所有系统正常运行'
@@ -15,15 +15,6 @@ settings:
   dayInHistogramNotOperational: ' incident(s)' # xx incident(s) recorded
 
 monitors:
-  - id: workers-cloudflare-com # unique identifier
-    name: workers.cloudflare.com
-    description: 'You write code. They handle the rest.' # default=empty
-    url: 'https://workers.cloudflare.com/' # URL to fetch
-    method: GET # default=GET
-    expectStatus: 200 # operational status, default=200
-    followRedirect: false # should fetch follow redirects, default=false
-    linkable: false # allows the title to be a link, default=true
-
   - id: lobe
     name: lobe
     description: ''
@@ -48,3 +39,26 @@ monitors:
     expectStatus: 200
     linkable: false # allows the title to be a link, default=true
 
+  - id: api
+    name: apiServer
+    description: ''
+    url: 'https://api.qinks6.eu.org'
+    method: GET
+    expectStatus: 200
+    linkable: false # allows the title to be a link, default=true
+
+  - id: proxy
+    name: proxy
+    description: ''
+    url: 'https://proxy.qinks6.eu.org'
+    method: GET
+    expectStatus: 200
+    linkable: false # allows the title to be a link, default=true
+    
+  - id: portainer
+    name: portainer
+    description: ''
+    url: 'https://portainer.qinks6.eu.org'
+    method: GET
+    expectStatus: 200
+    linkable: false # allows the title to be a link, default=true
